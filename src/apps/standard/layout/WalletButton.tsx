@@ -14,22 +14,9 @@ import { ActivityIcon, CopyIcon, LogoutIcon, SwapIcon } from '@/shared/ui/Icons'
 import { DEMO_ACCOUNTS, shortAddress, useWallet } from '@/shared/state/wallet';
 import { ROUTES } from './nav';
 
-/** Deterministic gradient avatar for an address (no external avatar service). */
-export function AddressAvatar({ address, size = 20 }: { address: string; size?: number }) {
-  const h = parseInt(address.slice(-6), 16) % 360;
-  return (
-    <Box
-      aria-hidden
-      sx={{
-        width: size,
-        height: size,
-        borderRadius: '50%',
-        flexShrink: 0,
-        background: `conic-gradient(from 90deg, hsl(${h} 70% 60%), hsl(${(h + 90) % 360} 70% 55%), hsl(${(h + 200) % 360} 70% 60%), hsl(${h} 70% 60%))`,
-      }}
-    />
-  );
-}
+/** Moved to shared/ui; re-exported so existing imports keep working. */
+export { AddressAvatar } from '@/shared/ui/AddressAvatar';
+import { AddressAvatar } from '@/shared/ui/AddressAvatar';
 
 export function WalletButton({ compact = false }: { compact?: boolean }) {
   const { account, kind, openConnect, disconnect, connect } = useWallet();

@@ -31,6 +31,7 @@ import { HealthValue, TxHashNote, useReadChainName } from '../ui/parts';
 import { buildAmountTx, buildLiquidateTx } from './build';
 import { runTx, type RunTxResult } from './runTx';
 import { useMiniTx, type MiniTxRequest } from './store';
+import { BRAND } from '../brand';
 
 const WAD = 10n ** 18n;
 const TITLE: Record<string, string> = { supply: 'Supply', withdraw: 'Withdraw', borrow: 'Borrow', repay: 'Repay', faucet: 'Faucet', liquidate: 'Liquidate', setPrice: 'Set price' };
@@ -184,7 +185,7 @@ function AmountModal({ kind, market, user, account, onClose }: { kind: 'supply' 
         {TITLE[kind]} {t.symbol}
       </Typography>
       <Box sx={{ display: 'flex', gap: 1, mt: 1, mb: 5 }}>
-        <Tag>Mini-Aave pool</Tag>
+        <Tag>{BRAND} pool</Tag>
         <Tag tone="purple">{network}</Tag>
       </Box>
       <AmountBox

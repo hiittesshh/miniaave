@@ -21,6 +21,7 @@ import { aprToApyPercent, fmtBps, fmtPercent, fmtToken, fmtUsd } from '../lib/fo
 import { miniRoutes } from '../layout/MiniShell';
 import { useMiniTx } from '../tx/store';
 import { useReadChainName } from '../ui/parts';
+import { BRAND } from '../brand';
 
 export const tokens = (v: bigint, decimals: number) => Number(v) / 10 ** decimals;
 export const usdOf = (v: bigint, r: Pick<MarketRow, 'price' | 'decimals'>) => tokens(v, r.decimals) * (Number(r.price) / 1e8);
@@ -67,9 +68,9 @@ export function MarketsPage() {
         subtitle="Supply assets to earn interest and use them as collateral, or borrow against your collateral."
         right={
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'flex-start', gap: '32px', pt: '4px' }}>
-            <HeaderStat label="Total Deposits" tooltip="Everything supplied to the Mini-Aave pool, in USD at oracle prices" value={totals.deposits} />
+            <HeaderStat label="Total Deposits" tooltip={`Everything supplied to the ${BRAND} pool, in USD at oracle prices`} value={totals.deposits} />
             <Box sx={{ width: '1px', height: 65, borderRadius: '2px', bgcolor: 'border-0' }} />
-            <HeaderStat label="Total Borrows" tooltip="Everything borrowed from the Mini-Aave pool, in USD at oracle prices" value={totals.borrows} />
+            <HeaderStat label="Total Borrows" tooltip={`Everything borrowed from the ${BRAND} pool, in USD at oracle prices`} value={totals.borrows} />
           </Box>
         }
       />
@@ -93,7 +94,7 @@ export function MarketsPage() {
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <IconStack symbols={(markets.data ?? []).map((r) => r.token.symbol)} />
             <Box component="span" sx={{ fontSize: '1.5rem', fontWeight: 500, lineHeight: '28.8px' }}>
-              Mini-Aave Pool
+              {BRAND} Pool
             </Box>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', columnGap: '24px', rowGap: 1, flexWrap: 'wrap', mt: '8px' }}>

@@ -16,6 +16,7 @@ import { useMiniTx } from '../tx/store';
 import { MIFaucet } from '../ui/icons';
 import { MiniTable } from '../ui/MiniTable';
 import { ActionGate, Notice, TokenCell, useReadChainName } from '../ui/parts';
+import { BRAND } from '../brand';
 
 export function FaucetPage() {
   const markets = useMarkets();
@@ -29,7 +30,7 @@ export function FaucetPage() {
 
   return (
     <>
-      <PageTitle size={28} title="Faucet" subtitle={`Free test tokens for the Mini-Aave pool on ${mode === 'mock' ? 'the mock chain' : network}. They have no value.`} />
+      <PageTitle size={28} title="Faucet" subtitle={`Free test tokens for the ${BRAND} pool on ${mode === 'mock' ? 'the mock chain' : network}. They have no value.`} />
       <Notice title="Need test ETH for fees first?">
         Getting tokens is a transaction, and every transaction costs a small fee in test ETH.{' '}
         <Box component="span" sx={{ display: 'inline-flex', mt: { xs: 1, sm: 0 } }}>

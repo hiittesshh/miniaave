@@ -22,7 +22,7 @@ import { ProShell, type NavGroup, type SearchItem, type ShellVariant } from '@/a
 import { TokenIcon } from '@/shared/ui/TokenIcon';
 import { ProButton } from '@/apps/pro/ui';
 import { PIActivity, PIDashboard, PIDeposit, PIGovernance, PISecurity } from '@/apps/pro/icons';
-import { AddressAvatar } from '@/apps/standard/layout/WalletButton';
+import { AddressAvatar } from '@/shared/ui/AddressAvatar';
 import { tv } from '@/shared/theme/tokens';
 import { ACCOUNTS, LOCAL_CHAIN_ID, SUPPORTED_CHAINS, chainName, chainShortName, isSupportedChain, roleOf } from '../data/config';
 import { useMarkets, useMiniLiveRefresh, useOracleOwner } from '../data/hooks';
@@ -36,6 +36,7 @@ import { ChainBanner, LowGasBanner, MiniWordmark, ScanNotice, useReadChainName }
 import { ToastHost } from '../ui/toasts';
 import { MIFaucet } from '../ui/icons';
 import { useFundModal } from '../data/funding';
+import { BRAND } from '../brand';
 import { FundModalHost } from '../tx/FundModal';
 
 export { miniRoutes } from './routes';
@@ -341,10 +342,10 @@ export function MiniShell({ children }: { children: React.ReactNode }) {
     compactBrand: <MiniWordmark compact />,
     brandAddon: <ModeChip />,
     compactBrandAddon: <ModeChip />,
-    brandLabel: 'Mini-Aave',
+    brandLabel: BRAND,
     topbarRight: <WalletButton />,
     hosts: <Hosts />,
-    navLabel: 'Mini-Aave navigation',
+    navLabel: `${BRAND} navigation`,
     search: {
       placeholder: 'Search assets and pages',
       groups: (term) => [
@@ -352,13 +353,13 @@ export function MiniShell({ children }: { children: React.ReactNode }) {
         { label: 'Pages', items: pages.filter((p) => match(term, p.title)) },
       ],
     },
-    promo: mode === 'chain' ? { title: `Mini-Aave · ${network}`, sub: network === 'Base Sepolia' ? 'Testnet: test tokens only' : 'Local chain', href: miniRoutes.markets } : { title: 'Mini-Aave · Mock data', sub: 'Simulated in your browser', href: miniRoutes.markets },
+    promo: mode === 'chain' ? { title: `${BRAND} · ${network}`, sub: network === 'Base Sepolia' ? 'Testnet: test tokens only' : 'Local chain', href: miniRoutes.markets } : { title: `${BRAND} · Mock data`, sub: 'Simulated in your browser', href: miniRoutes.markets },
     help: {
-      title: 'About Mini-Aave',
+      title: `About ${BRAND}`,
       body:
         mode === 'chain'
-          ? `You're on the real Mini-Aave contracts (${network}). Every action is a real transaction that MetaMask asks you to sign. Use the faucet for free test tokens. Switch back to mock data with the chip next to the Mini-Aave name.`
-          : 'Mock data: the Mini-Aave contracts are simulated in your browser (no chain, no real funds). Pick a test account in the wallet menu, use the faucet, and try supply, borrow, the price drop and a liquidation. "Reset demo data" starts over. To use the real contracts, click the MOCK DATA chip next to the Mini-Aave name and pick Chain.',
+          ? `You're on the real ${BRAND} test contracts (${network}). Every action is a real testnet transaction that MetaMask asks you to sign. Use the faucet for free test tokens. Switch back to mock data with the chip next to the ${BRAND} name.`
+          : `Mock data: the ${BRAND} contracts are simulated in your browser (no chain, no real funds). Pick a test account in the wallet menu, use the faucet, and try supply, borrow, the price drop and a liquidation. "Reset demo data" starts over. To use the real test contracts, click the MOCK DATA chip next to the ${BRAND} name and pick Chain.`,
     },
   };
   return (

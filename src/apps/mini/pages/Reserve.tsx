@@ -31,6 +31,7 @@ import { ActivitySkeleton, describeEvent, EventFeed } from '../ui/activity';
 import { MiniChart } from '../ui/charts';
 import { ActionGate, useReadChainName } from '../ui/parts';
 import { tokens, usdOf } from './Markets';
+import { BRAND } from '../brand';
 
 const pct = (v: number) => fmtPercent(v * 100);
 const relTime = (t: number) => {
@@ -81,7 +82,7 @@ export function ReservePage({ symbol }: { symbol: string }) {
   const [holderPage, setHolderPage] = React.useState(10);
 
   if (markets.data && !m) {
-    return <ProEmpty titleAs="h1" title="Asset not found" description={`The Mini-Aave pool has no reserve called “${symbol}”.`} action={<ProButton variant="secondary" href={miniRoutes.markets}>Back to Markets</ProButton>} />;
+    return <ProEmpty titleAs="h1" title="Asset not found" description={`The ${BRAND} pool has no reserve called “${symbol}”.`} action={<ProButton variant="secondary" href={miniRoutes.markets}>Back to Markets</ProButton>} />;
   }
 
   const sym = m?.token.symbol ?? symbol.toUpperCase();
@@ -154,7 +155,7 @@ export function ReservePage({ symbol }: { symbol: string }) {
         sub={
           <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: 'fg-2' }}>
             <Box component="a" href={miniRoutes.markets} sx={{ color: 'fg-1', textDecoration: 'underline', textDecorationStyle: 'dotted', textUnderlineOffset: 3 }}>
-              Mini-Aave Pool
+              {BRAND} Pool
             </Box>
             on {network}
           </Box>

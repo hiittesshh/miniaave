@@ -14,7 +14,7 @@ import { InfoLabel, reserveCard } from '@/apps/pro/pages/ReservePage';
 import { SegmentedToggle } from '@/apps/pro/pages/preferences/controls';
 import { PageTitle, ProButton, Tag, USD } from '@/apps/pro/ui';
 import { TokenIcon } from '@/shared/ui/TokenIcon';
-import { AddressAvatar } from '@/apps/standard/layout/WalletButton';
+import { AddressAvatar } from '@/shared/ui/AddressAvatar';
 import { contractsFor, roleOf } from '../data/config';
 import { useEvents, useMarkets, useOracleOwner, usePriceHistory } from '../data/hooks';
 import { useReadChainId, useWallet } from '../data/useWallet';

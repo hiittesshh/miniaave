@@ -38,7 +38,7 @@ export const useMiniSettings = create<MiniSettingsState>()(
     }),
     // Hydrated by MiniProviders after the first render, so the first client render matches the
     // server's (the env default) and React doesn't report a hydration mismatch.
-    { name: 'mini-aave-source-v1', skipHydration: true },
+    { name: 'minilend-source-v1', skipHydration: true },
   ),
 );
 

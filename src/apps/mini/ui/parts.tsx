@@ -16,6 +16,7 @@ import { GAS_MIN_WEI } from '../lib/funding';
 import { useMiniSettings, useSourceMode } from '../data/settings';
 import type { Address } from '../data/types';
 import { useReadChainId, useWallet } from '../data/useWallet';
+import { BRAND } from '../brand';
 
 /** The network the chain source reads from (the wallet's chain if supported, else the target). */
 export function useReadChainName() {
@@ -29,7 +30,7 @@ export function useReadChainName() {
 export function MiniWordmark({ compact = false }: { compact?: boolean }) {
   return (
     <Box component="span" sx={{ fontSize: compact ? 16 : 18, fontWeight: 600, letterSpacing: '-0.01em', whiteSpace: 'nowrap', color: 'fg-1' }}>
-      Mini-Aave
+      {BRAND}
     </Box>
   );
 }
@@ -114,8 +115,8 @@ export function TxHashNote({ hash }: { hash: `0x${string}` }) {
 
 const BANNER_TEXT: Record<'no-contracts' | 'unreachable' | 'not-deployed', (network: string) => string> = {
   unreachable: (n) => `The app can't reach ${n} right now. If you're testing locally, start the local chain (anvil) on this computer, then this page reconnects by itself.`,
-  'no-contracts': (n) => `There are no Mini-Aave contract addresses for ${n} yet. Switch your wallet to a supported network, or use mock data.`,
-  'not-deployed': (n) => `${n} is running, but the Mini-Aave contracts aren't deployed on it. Run the deploy step, then refresh.`,
+  'no-contracts': (n) => `There are no ${BRAND} contract addresses for ${n} yet. Switch your wallet to a supported network, or use mock data.`,
+  'not-deployed': (n) => `${n} is running, but the ${BRAND} contracts aren't deployed on it. Run the deploy step, then refresh.`,
 };
 
 /**

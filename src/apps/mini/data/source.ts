@@ -46,7 +46,7 @@ export type { MiniDataSource, SourceStatus } from './sourceTypes';
 // ---------------------------------------------------------------------------------------------
 
 // v2: events carry wall-clock times (v1 states have the engine's fixed 2026-10-14 clock).
-const STORAGE_KEY = 'mini-aave-state-v2';
+const STORAGE_KEY = 'minilend-state-v2';
 const DAY = 86_400_000;
 const SIGN_MS = 700;
 const MINE_MS = 900;

@@ -31,7 +31,7 @@ export const useMiniWallet = create<MiniWalletState>()(
       disconnect: () => set({ account: null }),
       setChain: (chainId) => set({ chainId }),
     }),
-    { name: 'mini-aave-wallet-v1', skipHydration: true }, // hydrated by MiniProviders (see settings.ts)
+    { name: 'minilend-wallet-v1', skipHydration: true }, // hydrated by MiniProviders (see settings.ts)
   ),
 );
 

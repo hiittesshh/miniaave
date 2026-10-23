@@ -71,7 +71,7 @@ export const useMockFunding = create<MockFundingState>()(
       add: (chain, wei) => set((s) => (chain === 'base' ? { baseEth: (BigInt(s.baseEth) + wei).toString() } : { sepoliaEth: (BigInt(s.sepoliaEth) + wei).toString() })),
       reset: () => set({ baseEth: '0', sepoliaEth: '0' }),
     }),
-    { name: 'mini-aave-funding-mock-v1', skipHydration: true }, // hydrated by MiniProviders
+    { name: 'minilend-funding-mock-v1', skipHydration: true }, // hydrated by MiniProviders
   ),
 );
 

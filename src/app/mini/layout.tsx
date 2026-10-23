@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { MiniProviders } from '@/apps/mini/layout/MiniProviders';
 import { MiniShell } from '@/apps/mini/layout/MiniShell';
+import { BRAND } from '@/apps/mini/brand';
 
 export const metadata: Metadata = {
-  title: { default: 'Mini-Aave', template: '%s · Mini-Aave' },
-  description: 'Mini-Aave frontend inside the Pro clone: mock contract data by default, or the real contracts through MetaMask.',
+  title: { default: BRAND, template: `%s · ${BRAND}` },
+  description: `${BRAND}: a demo lending app on the Base Sepolia testnet. Mock data by default, or the real test contracts through MetaMask. Test tokens only.`,
 };
 
 // Same font setup as the Pro app (Inter with the optical-size axis, normal letter spacing), so the

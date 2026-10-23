@@ -36,6 +36,7 @@ import { miniRoutes } from '../layout/routes';
 import { ActionGate } from '../ui/parts';
 import { useToasts } from '../ui/toasts';
 import { runTx } from './runTx';
+import { BRAND } from '../brand';
 import { useMiniTx } from './store';
 
 const eth = (v: bigint | null) => (v === null ? '…' : `${fmtToken(v, 18, 4)} ETH`);
@@ -283,7 +284,7 @@ function FundContent() {
         </Box>
         {why && (
           <Box sx={{ mt: 1, p: '10px 12px', borderRadius: '10px', bgcolor: 'bg-2', fontSize: 13, lineHeight: '19px', color: 'fg-2', animation: 'clone-fade-up 200ms ease both' }}>
-            Every action on a blockchain costs a small fee, called <b>gas</b>, paid in the network&apos;s own ETH. On Base Sepolia that ETH is free test money from a faucet. The tokens you lend and borrow here (USDC and WETH) come from Mini-Aave&apos;s own faucet. None of it is real money.
+            Every action on a blockchain costs a small fee, called <b>gas</b>, paid in the network&apos;s own ETH. On Base Sepolia that ETH is free test money from a faucet. The tokens you lend and borrow here (USDC and WETH) come from {BRAND}&apos;s own faucet. None of it is real money.
           </Box>
         )}
       </Box>
@@ -356,13 +357,13 @@ function FundContent() {
             onToggle={() => setManual(openStep === 2 ? 0 : 2)}
             summary={tokenRows.length ? tokenRows.map((t) => `${fmtToken(t.balance, t.decimals, 2)} ${t.symbol}`).join(' · ') : 'Checking your balances…'}
           >
-            <Note>Free USDC and WETH from Mini-Aave&apos;s faucet: 10,000 USDC or 5 WETH per click. Each click is a transaction, so it needs step 1.</Note>
+            <Note>Free USDC and WETH from {BRAND}&apos;s faucet: 10,000 USDC or 5 WETH per click. Each click is a transaction, so it needs step 1.</Note>
             {tokenRows.map((t) => (
               <TokenFaucetRow key={t.asset} account={account} asset={t.asset} symbol={t.symbol} decimals={t.decimals ?? TOKENS[t.asset]?.decimals ?? 18} balance={t.balance} />
             ))}
           </StepCard>
 
-          <StepCard n={3} title="Start using Mini-Aave" done={false} open={openStep === 3} onToggle={() => setManual(openStep === 3 ? 0 : 3)} summary={st.gasDone && st.tokensDone ? "You're ready" : 'After steps 1 and 2'}>
+          <StepCard n={3} title={`Start using ${BRAND}`} done={false} open={openStep === 3} onToggle={() => setManual(openStep === 3 ? 0 : 3)} summary={st.gasDone && st.tokensDone ? "You're ready" : 'After steps 1 and 2'}>
             <Note>Supply tokens to earn interest and use them as collateral, then borrow against them.</Note>
             <Box sx={{ display: 'flex', gap: 1 }}>
               <ProButton

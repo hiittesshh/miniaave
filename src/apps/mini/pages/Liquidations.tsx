@@ -19,7 +19,7 @@ import { SegmentedToggle } from '@/apps/pro/pages/preferences/controls';
 import { PageTitle, ProButton, ProEmpty, USD } from '@/apps/pro/ui';
 import { TokenIcon } from '@/shared/ui/TokenIcon';
 import { tv } from '@/shared/theme/tokens';
-import { AddressAvatar } from '@/apps/standard/layout/WalletButton';
+import { AddressAvatar } from '@/shared/ui/AddressAvatar';
 import { TOKENS, roleOf } from '../data/config';
 import { useAtRisk, type AtRiskRow } from '../data/hooks';
 import { useWallet } from '../data/useWallet';

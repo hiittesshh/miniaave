@@ -155,7 +155,7 @@ const listeners = new Set<() => void>();
 const inflight = new Map<number, Promise<MiniEvent[]>>();
 
 type EventCacheEntry = { pool: Address; toBlock: bigint; toBlockHash: `0x${string}` | null; events: MiniEvent[] };
-const STORE_PREFIX = 'mini-aave-events-v1';
+const STORE_PREFIX = 'minilend-events-v1';
 const bigReplacer = (_k: string, v: unknown) => (typeof v === 'bigint' ? { __big: v.toString() } : v);
 const bigReviver = (_k: string, v: unknown) => (v && typeof v === 'object' && '__big' in (v as object) ? BigInt((v as { __big: string }).__big) : v);
 /** The scanned log survives reloads (public Base Sepolia needs ~1 minute for a full first scan). */
