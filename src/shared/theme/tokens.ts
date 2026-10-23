@@ -1,0 +1,176 @@
+/**
+ * Colour tokens, light and dark.
+ *
+ * Values were measured from the reference apps (see docs/REFERENCE_AUDIT.md §1.4 and §2.4). Both
+ * Aave apps use the same token names, so one map serves the Standard and Pro clones. The MUI
+ * theme flattens these onto the palette root, which makes MUI emit one CSS variable per token
+ * (`--mui-palette-bg-1`). Components reference them through `tv('bg-1')` or the bare token name
+ * in `sx` (`sx={{ bgcolor: 'bg-1' }}`).
+ */
+export const lightTokens = {
+  'bg-max': '#f0f0f0',
+  'bg-1': '#fafafa',
+  'bg-2': '#fcfcfc',
+  'bg-3': '#ffffff',
+  'bg-4': '#f2f2f2',
+  'bg-5': '#f1f1f1',
+  'bg-6': '#ebebeb',
+  /** Live Pro --table-item-hover-2: table row hover plate. */
+  'table-item-hover-2': '#f4f4f4',
+  /** Text on the primary (inverted) Pro button. */
+  'button-primary-fg': '#ffffff',
+  'border-0': 'rgba(0, 0, 0, 0.06)',
+  'border-1': 'rgba(0, 0, 0, 0.08)',
+  'border-2': 'rgba(0, 0, 0, 0.1)',
+  'fg-max': '#000000',
+  'fg-1': '#000000',
+  'fg-2': '#666666',
+  'fg-3': '#7d7d7d',
+  'fg-4': '#a8a8a8',
+  'fg-5': '#b3b3b3',
+  'fg-icon': '#a8a8a8',
+  'fg-chevron': '#8f8e8e',
+  selected: 'rgba(46, 15, 15, 0.04)',
+  'blue-1': '#0d7bec',
+  'blue-2': '#3d9bff',
+  'yellow-1': '#f5a800',
+  'yellow-2': '#ffc61a',
+  'red-1': '#eb4200',
+  'red-2': '#ff7a38',
+  'purple-1': '#716ef3',
+  'purple-2': '#9b99ff',
+  'purple-3': '#e0dfff',
+  'green-1': '#068c7c',
+  'green-3': '#b4eae5',
+  'shadow-low': 'rgba(0, 0, 0, 0.03)',
+  'shadow-medium': 'rgba(0, 0, 0, 0.05)',
+  'shadow-high': 'rgba(0, 0, 0, 0.07)',
+  'shadow-strong': 'rgba(0, 0, 0, 0.11)',
+  'shadow-stroke-1': 'rgba(0, 0, 0, 0.06)',
+  'shadow-stroke-2': 'rgba(0, 0, 0, 0.08)',
+  scrim: 'rgba(247, 246, 246, 0.8)',
+  'data-red': '#ff4760',
+  'data-orange': '#ff7029',
+  'data-yellow': '#dba400',
+  'data-green': '#00bd68',
+  'data-teal': '#05b4c7',
+  'data-blue': '#38b0f5',
+  'data-azure': '#4797ff',
+  'data-purple': '#837aff',
+  'data-lavender': '#c061ff',
+  'data-pink': '#eb47cf',
+  'data-seafoam': '#00b89f',
+  'data-honey': '#ff8c00',
+  'button-hover': 'rgba(0, 0, 0, 0.025)',
+  'overlay-hover': 'rgba(0, 0, 0, 0.08)',
+  'favourite-star': '#ffb300',
+  danger: '#dc2626',
+  'teal-ink': '#00b3a6',
+  'surface-elevated': '#ffffff',
+  'table-bg': '#ffffff',
+  'bg-4-hover': '#f6f7f4',
+  'button-hover-primary': 'rgba(255, 255, 255, 0.16)',
+  'button-hover-secondary': 'rgba(0, 0, 0, 0.03)',
+  'button-hover-tertiary': 'rgba(0, 0, 0, 0.04)',
+  // Pro-only tokens (pro.aave.com CSS): health ramp and table hover.
+  'health-1': '#e13b3b',
+  'health-2': '#f27211',
+  'health-3': '#f0c914',
+  'health-4': '#93cc00',
+  'health-5': '#74c428',
+  'health-6': '#3bc94b',
+  'health-7': '#00c55c',
+  'table-item-hover': '#fafafa',
+  'tooltip-bg': 'rgba(0, 0, 0, 0.85)',
+} as const;
+
+export type TokenName = keyof typeof lightTokens;
+
+export const darkTokens: Record<TokenName, string> = {
+  'bg-max': '#0a0a0b',
+  'bg-1': '#100f0f',
+  'bg-2': '#1a1919',
+  'bg-3': '#1f1e1e',
+  'bg-4': '#2a2828',
+  'bg-5': '#393737',
+  'bg-6': '#494646',
+  /** Live Pro --table-item-hover-2: table row hover plate. */
+  'table-item-hover-2': '#282727',
+  /** Text on the primary (inverted) Pro button: live dark theme uses pure black. */
+  'button-primary-fg': '#000000',
+  'border-0': 'rgba(255, 255, 255, 0.06)',
+  'border-1': 'rgba(255, 255, 255, 0.08)',
+  'border-2': 'rgba(255, 255, 255, 0.12)',
+  'fg-max': '#ffffff',
+  'fg-1': '#ffffff',
+  'fg-2': '#bcbbbb',
+  'fg-3': '#8f8e8e',
+  'fg-4': '#636161',
+  'fg-5': '#484747',
+  'fg-icon': '#a8a8a8',
+  'fg-chevron': '#8f8e8e',
+  selected: 'rgba(255, 255, 255, 0.06)',
+  'blue-1': '#1a88f8',
+  'blue-2': '#48abff',
+  'yellow-1': '#ffc42c',
+  'yellow-2': '#ffd631',
+  'red-1': '#f24900',
+  'red-2': '#ff8947',
+  'purple-1': '#9391f7',
+  'purple-2': '#bcbbff',
+  'purple-3': '#e2e0ff',
+  'green-1': '#1f807b',
+  'green-3': '#9debe7',
+  'shadow-low': 'rgba(0, 0, 0, 0.15)',
+  'shadow-medium': 'rgba(0, 0, 0, 0.3)',
+  'shadow-high': 'rgba(0, 0, 0, 0.35)',
+  'shadow-strong': 'rgba(0, 0, 0, 0.5)',
+  'shadow-stroke-1': 'rgba(255, 255, 255, 0.08)',
+  'shadow-stroke-2': 'rgba(255, 255, 255, 0.1)',
+  scrim: 'rgba(71, 67, 67, 0.8)',
+  'data-red': '#e05269',
+  'data-orange': '#e68662',
+  'data-yellow': '#fdc75a',
+  'data-green': '#66c399',
+  'data-teal': '#8de3cc',
+  'data-blue': '#88d5ed',
+  'data-azure': '#88c0fe',
+  'data-purple': '#a5a3ff',
+  'data-lavender': '#c9a1ef',
+  'data-pink': '#e1a4d9',
+  'data-seafoam': '#78d3b3',
+  'data-honey': '#f59942',
+  'button-hover': 'rgba(255, 255, 255, 0.025)',
+  'overlay-hover': 'rgba(255, 255, 255, 0.08)',
+  'favourite-star': '#ffb300',
+  danger: '#dc2626',
+  'teal-ink': '#00c1b8',
+  'surface-elevated': '#1e1e20',
+  'table-bg': '#1a1919',
+  'bg-4-hover': '#28282a',
+  'button-hover-primary': 'rgba(0, 0, 0, 0.16)',
+  'button-hover-secondary': 'rgba(255, 255, 255, 0.04)',
+  'button-hover-tertiary': 'rgba(255, 255, 255, 0.06)',
+  'health-1': '#ff5656',
+  'health-2': '#fe8736',
+  'health-3': '#fabe0a',
+  'health-4': '#bfd22c',
+  'health-5': '#8eda43',
+  'health-6': '#5de35b',
+  'health-7': '#00ef6a',
+  'table-item-hover': '#1e1d1d',
+  'tooltip-bg': 'rgba(255, 255, 255, 0.12)',
+};
+
+/** CSS-variable reference for a token: `tv('bg-1')` → `var(--mui-palette-bg-1)`. */
+export const tv = (name: TokenName) => `var(--mui-palette-${name})`;
+
+/** The shared "surface" shadow: soft drop shadow plus a 1px ring standing in for a border. */
+export const surfaceShadow = (stroke: TokenName = 'shadow-stroke-2') =>
+  `0px 2px 4px 0px ${tv('shadow-low')}, 0px 0px 0px 1px ${tv(stroke)}`;
+
+/** Always-white ink for content on coloured fills (works in SVG attributes too). */
+export const onAccent = '#ffffff';
+
+/** Selector matching dark mode (MUI sets `data-mui-color-scheme` on <html>). */
+export const DARK = '*:where([data-mui-color-scheme="dark"]) &';
